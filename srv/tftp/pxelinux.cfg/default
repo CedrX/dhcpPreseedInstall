@@ -1,0 +1,23 @@
+#default menu for all PXE boot
+DEFAULT vesamenu.c32
+# liste des choix 
+label Boot local disk
+    kernel chain.c32 
+    append hd0
+
+label sccm
+menu label Start SCCM 2012 R2
+COM32 pxechn.c32
+APPEND 192.168.129.3::smsboot\x86\wdsnbp.com -W
+
+label Xenial ubuntu 16.04 Installer
+        kernel xenial/ubuntu-installer/amd64/boot-screens/vesamenu.c32
+        append xenial/ubuntu-installer/amd64/boot-screens/menu.cfg
+
+LABEL thinstation
+	KERNEL /thinstation/vmlinuz
+	APPEND initrd=/thinstation/initrd splash=silent,theme:default load_ramdisk=1 ramdisk_blocksize=4096 root=/dev/ram0 ramdisk_size=786432 console=tty1 vt.global_cursor_default=0 quiet loglevel=3 LM=3
+
+LABEL Clonezilla
+	KERNEL /clonezilla/live/vmlinuz
+	APPEND /clonezilla/live/initrd.img boot=live debug=1 union=overlay config noswap locales="fr_FR.UTF-8" edd=on nomodeset vga=788 nodmraid  keyboard-layouts=fr timezone="Europe/Paris" ocs_live_run="ocs-live-general" ocs_live_extra_param="" ocs_live_batch=no rootfstype=squashfs fetch=http://192.168.90.253/filesystem.squashfs

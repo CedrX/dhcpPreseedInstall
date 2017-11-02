@@ -1,0 +1,16 @@
+;zone formation.local
+$TTL 172800
+
+@	IN	SOA	ns90.formation.local. dns.formation.local (
+			2016120700	 ; Serial YYYYMMDDnn
+			21600	  	 ; Refresh 6 heures
+			3600	         ; Retry chaque heure
+			3600000		 ; Expire (41 jours)
+			172800 )	 ; Minimum ttl (2 jour)
+
+	IN	NS	ns90.formation.local.
+
+ns90	IN	A	192.168.90.253;
+ubformation1	IN	A	192.168.90.129;
+ubformation2	IN	A	192.168.90.130
+ls-wag11	IN	A	192.168.90.131

@@ -1,0 +1,15 @@
+;zone 90.168.192.in-addr.arpa
+$TTL 172800
+
+@	IN	SOA	ns90.formation.local. dns.formation.local (
+			2016120700	 ; Serial YYYYMMDDnn
+			21600	  	 ; Refresh 6 heures
+			3600	         ; Retry chaque heure
+			3600000		 ; Expire (41 jours)
+			172800 )	 ; Minimum ttl (2 jour)
+
+@	IN      NS      ns90.formation.local.
+253	IN	PTR	ns90.formation.local.
+129	IN	PTR	ubformation1.formation.local.
+130	IN	PTR	ubformation2.formation.local.
+131	IN	PTR	ls-wag11.formation.local.
